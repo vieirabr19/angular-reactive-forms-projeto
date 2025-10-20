@@ -1,1 +1,30 @@
-<h1>{{title()}}</h1>
+<div class="p-4 max-w-7xl mx-auto">
+  <mat-card>
+    <mat-card-content>
+      @if (usersState().loading) {
+      <div class="text-gray-500 flex justify-center gap-2">
+        <mat-spinner diameter="20"></mat-spinner>
+        <span>Carregando usuários...</span>
+      </div>
+      } @else if (usersState().error) {
+      <div class="text-center text-red-500 p-4">
+        {{ usersState().error }}
+      </div>
+      } @else if (usersState().dados?.length) {
+      <app-users-list [usersList]="usersState().dados || []" />
+      } @else {
+      <div class="text-center text-gray-500 p-4">
+        Nenhum usuário encontrado.
+      </div>
+      }
+
+      <div class="p-4">
+        <mat-tab-group [(selectedIndex)]="currentTabIndex">
+          <mat-tab label="Geral">GERAL</mat-tab>
+          <mat-tab label="Contato">CONTATO</mat-tab>
+          <mat-tab label="Dependente">DEPENDENTE</mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
