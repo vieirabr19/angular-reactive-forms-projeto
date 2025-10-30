@@ -9,9 +9,9 @@ import { IUser } from '../../interfaces/user/user.interface';
 })
 export class UserInformationsContainer implements OnChanges {
   currentTabIndex: number = 0;
-  
-  @Input({required: true}) isInEditMode: boolean = false;
-  @Input({required: true}) userSelected: IUser = {} as IUser;
+
+  @Input({ required: true }) isInEditMode: boolean = false;
+  @Input({ required: true }) userSelected: IUser = {} as IUser;
 
   ngOnChanges(_: SimpleChanges) {
     this.currentTabIndex = 0;

@@ -5,26 +5,32 @@ import { AngularMaterialModule } from "../angular-material/angular-material.modu
 import { PipesModule } from "../pipes/pipes.module";
 
 import { UsersList } from './users-list/users-list';
-import { GeneralInformation } from './general-information/general-information';
+import { GeneralInformations } from './general-informations/general-informations';
 import { UserInfoItem } from './user-info-item/user-info-item';
-import { ContactInformation } from './contact-information/contact-information';
-import { PhoneList } from './contact-information/components/phone-list/phone-list';
-import { AddressList } from './contact-information/components/address-list/address-list';
+import { ContactInformations } from './contact-informations/contact-informations';
+import { PhoneList } from './contact-informations/components/phone-list/phone-list';
+import { AddressList } from './contact-informations/components/address-list/address-list';
 import { DependentsList } from './dependents-list/dependents-list';
 import { ButtonsContainer } from './buttons-container/buttons-container';
 import { UserInformationsContainer } from './user-informations-container/user-informations-container';
+import { GeneralInformationsEdit } from './general-informations-edit/general-informations-edit';
+import { ContactInformationsEdit } from './contact-informations-edit/contact-informations-edit';
+import { DependentListEdit } from './dependent-list-edit/dependent-list-edit';
 
 @NgModule({
   declarations: [
     UsersList,
-    GeneralInformation,
+    GeneralInformations,
     UserInfoItem,
-    ContactInformation,
+    ContactInformations,
     PhoneList,
     AddressList,
     DependentsList,
     ButtonsContainer,
-    UserInformationsContainer
+    UserInformationsContainer,
+    GeneralInformationsEdit,
+    ContactInformationsEdit,
+    DependentListEdit
   ],
   imports: [
     CommonModule,
@@ -33,9 +39,6 @@ import { UserInformationsContainer } from './user-informations-container/user-in
   ],
   exports: [
     UsersList,
-    GeneralInformation,
-    ContactInformation,
-    DependentsList,
     ButtonsContainer,
     UserInformationsContainer,
   ]
