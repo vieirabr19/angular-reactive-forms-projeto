@@ -1,6 +1,6 @@
-import { AddressList } from "../../types/address-list.type";
-import { DependentsList } from "../../types/dependents-list.type";
-import { PhoneList } from "../../types/phone-list.type";
+import { TAddressList } from "../../types/address-list.type";
+import { TDependentsList } from "../../types/dependents-list.type";
+import { TPhoneList } from "../../types/phone-list.type";
 
 export interface IUser {
   id: number;
@@ -11,7 +11,7 @@ export interface IUser {
   maritalStatus: number;
   monthlyIncome: number;
   birthDate: string;
-  phoneList: PhoneList;
-  addressList: AddressList;
-  dependentsList: DependentsList;
+  phoneList: TPhoneList;
+  addressList: TAddressList;
+  dependentsList: TDependentsList;
 }

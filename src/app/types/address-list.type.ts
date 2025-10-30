@@ -1,3 +1,3 @@
 import { IAddress } from "../interfaces/user/address.interface";
 
-export type AddressList = IAddress[];
+export type TAddressList = IAddress[];

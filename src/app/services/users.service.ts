@@ -14,7 +14,7 @@ export class UsersService {
   private readonly usersList: UsersListResponse = [
     {
       id: 1,
-      name: 'Fulano',
+      name: 'Fulano 1',
       email: 'fulano@hotmail.com',
       country: 'Brazil',
       state: 'São Paulo',
@@ -148,7 +148,7 @@ export class UsersService {
 
   getUsers(): Observable<UsersListResponse> {
     return new Observable(obeserver => {
-      setTimeout(() => obeserver.next(this.usersList), 3000);
+      setTimeout(() => obeserver.next(this.usersList), 300);
     });
   }
 }

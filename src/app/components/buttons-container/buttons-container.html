@@ -1,0 +1,9 @@
+<div class="py-4 flex justify-end gap-2">
+  @if(!isInEditMode){
+    <button class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-2 rounded text-md cursor-pointer uppercase" (click)="onEditButton()">Editar</button>
+  }
+  @else {
+    <button class="bg-red-600 hover:bg-red-700 text-white py-1 px-2 rounded text-md cursor-pointer uppercase" (click)="onCancelButton()">Cancelar</button>
+    <button class="bg-green-600 hover:bg-green-700 text-white py-1 px-2 rounded text-md cursor-pointer uppercase">Salvar</button>
+  }
+</div>

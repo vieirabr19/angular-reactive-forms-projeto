@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { UsersListResponse } from '../../types/users-list-response.type';
 
@@ -9,10 +9,14 @@ import { UsersListResponse } from '../../types/users-list-response.type';
   styleUrl: './users-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersList implements OnInit {
-  @Input({ required: true }) usersList: UsersListResponse = [];
+export class UsersList {
+  userSeletedIndex: number | undefined;
 
-  ngOnInit() {
-    console.log(this.usersList);
+  @Input({ required: true }) usersList: UsersListResponse = [];
+  @Output('onUserSelected') onUserSelectedEmitt = new EventEmitter<number>;
+
+  onUserSelected(userIndex: number) {
+    this.userSeletedIndex = userIndex;
+    this.onUserSelectedEmitt.emit(userIndex);
   }
 }

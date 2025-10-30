@@ -1,0 +1,5 @@
+<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+  @for(phone of phoneListToDisplay; let i = $index; track i){
+    <app-user-info-item [title]="phone.type" [text]="phone.number" />
+  }
+</div>

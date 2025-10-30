@@ -1,0 +1,16 @@
+@if(!userDependentsList?.length){
+  <div class="text-lg mt-4">Usuário não possui dependentes.</div>
+}
+@else {
+  @for(dependent of userDependentsList; let i = $index; let last = $last; track i){
+    <div class="grid sm:grid-cols-3 py-2">
+      <app-user-info-item title="Nome" [text]="dependent.name" />
+      <app-user-info-item title="Idade" [text]="dependent.age | age" />
+      <app-user-info-item title="Documento" [text]="dependent.document | cpf : true" />
+    </div>
+
+    @if(!last){
+    <hr class="sm:hidden">
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="p-4">
+  <mat-tab-group [(selectedIndex)]="currentTabIndex">
+    <mat-tab label="Geral">
+      @if(!isInEditMode){
+        <app-general-information [user]="userSelected" />
+      }@else {
+        <div>EDIÇÃO app-general-information</div>
+      }
+    </mat-tab>
+    <mat-tab label="Contato">      
+      @if(!isInEditMode){
+        <app-contact-information [user]="userSelected" />
+      }@else {
+        <div>EDIÇÃO app-contact-information</div>
+      }
+    </mat-tab>
+    <mat-tab label="Dependente">      
+      @if(!isInEditMode){
+        <app-dependents-list [userDependentsList]="userSelected.dependentsList" />
+      }@else {
+        <div>EDIÇÃO app-dependents-list</div>
+      }
+    </mat-tab>
+  </mat-tab-group>
+</div>

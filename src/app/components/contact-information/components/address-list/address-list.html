@@ -1,0 +1,14 @@
+@for(address of addressListToDisplay; let i = $index; track i; let last = $last){
+<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 my-2">
+  <app-user-info-item title="Tipo" [text]="address.typeDescription" />
+  <app-user-info-item title="Rua" [text]="address.street" />
+  <app-user-info-item title="Complemento" [text]="address.complement" />
+  <app-user-info-item title="País" [text]="address.country" />
+  <app-user-info-item title="Estado" [text]="address.state" />
+  <app-user-info-item title="Cidade" [text]="address.city" />
+</div>
+
+@if(!last){
+  <hr class="lg:hidden">
+}
+}

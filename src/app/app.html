@@ -11,20 +11,18 @@
         {{ usersState().error }}
       </div>
       } @else if (usersState().dados?.length) {
-      <app-users-list [usersList]="usersState().dados || []" />
+      <app-users-list [usersList]="usersList()" (onUserSelected)="onUserSelected($event)" />
       } @else {
       <div class="text-center text-gray-500 p-4">
         Nenhum usuário encontrado.
       </div>
       }
+      
+      @if(userSelectedIndex !== undefined){
+        <app-buttons-container [isInEditMode]="isInEditMode" (onEditButton)="onEditButton()" (onCancelButton)="onCancelButton()" />
 
-      <div class="p-4">
-        <mat-tab-group [(selectedIndex)]="currentTabIndex">
-          <mat-tab label="Geral">GERAL</mat-tab>
-          <mat-tab label="Contato">CONTATO</mat-tab>
-          <mat-tab label="Dependente">DEPENDENTE</mat-tab>
-        </mat-tab-group>
-      </div>
+        <app-user-informations-container [userSelected]="userSelected" [isInEditMode]="isInEditMode" />
+      }
     </mat-card-content>
   </mat-card>
 </div>
