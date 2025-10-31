@@ -20,7 +20,7 @@ export class UsersService {
       state: 'São Paulo',
       maritalStatus: MaritalStatusEnum.SINGLE, // -> Estado Civil // -> Solteiro
       monthlyIncome: 5000, // -> Renda Mensal
-      birthDate: '25/02/1991',
+      birthDate: '1991-02-25T10:02:23',
       phoneList: [
         {
           type: PhoneTypeEnum.RESIDENTIAL, // -> Residencial
@@ -88,7 +88,7 @@ export class UsersService {
       state: 'São Paulo',
       maritalStatus: MaritalStatusEnum.MARRIED, // -> Estado Civil // -> Casada
       monthlyIncome: 6000, // -> Renda Mensal
-      birthDate: '12/12/1994',
+      birthDate: '1994-12-12T15:43:23',
       phoneList: [
         {
           type: PhoneTypeEnum.EMERGENCY, // -> Emergência
@@ -123,7 +123,7 @@ export class UsersService {
       state: 'São Paulo',
       maritalStatus: MaritalStatusEnum.DIVORCED, // -> Estado Civil // -> Divorciado
       monthlyIncome: 7000, // -> Renda Mensal
-      birthDate: '11/11/1991',
+      birthDate: '1993-11-11T18:32:23',
       phoneList: [
         {
           type: PhoneTypeEnum.CELLPHONE, // -> Celular

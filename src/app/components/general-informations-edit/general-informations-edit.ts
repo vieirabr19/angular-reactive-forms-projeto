@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-general-informations-edit',
   standalone: false,
   templateUrl: './general-informations-edit.html',
-  styleUrl: './general-informations-edit.scss'
+  styleUrl: './general-informations-edit.scss',
 })
 export class GeneralInformationsEdit {
 

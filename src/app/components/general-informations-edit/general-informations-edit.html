@@ -1,1 +1,49 @@
-<p>general-informations-edit works!</p>
+<div class="grid lg:grid-cols-3 gap-4 pt-4">
+  <mat-form-field class="w-full">
+    <mat-label>Nome</mat-label>
+    <input type="text" matInput placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field class="w-full">
+    <mat-label>E-mail</mat-label>
+    <input type="email" matInput placeholder="E-mail">
+  </mat-form-field>
+</div>
+<div class="grid lg:grid-cols-3 gap-4 py-2">
+  <mat-form-field>
+    <mat-label>País</mat-label>
+    <mat-select name="pais">
+      @for (pais of []; track pais) {
+      <mat-option [value]="pais">{{pais}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Estados</mat-label>
+    <mat-select name="estado">
+      @for (state of []; track state) {
+      <mat-option [value]="state">{{state}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="grid lg:grid-cols-3 gap-4 py-2">
+  <div class="w-full">
+    <div class="text-lg w-full">Estado civil:</div>
+    <mat-radio-group class="flex flex-col sm:flex-row gap-3">
+      <mat-radio-button value="1">Solteiro</mat-radio-button>
+      <mat-radio-button value="2">Casado</mat-radio-button>
+      <mat-radio-button value="3">Divorciado</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <mat-form-field class="w-full">
+    <mat-label>Renda mensal</mat-label>
+    <input type="text" matInput placeholder="R$ 5.000,00">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Data de nascimento</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>

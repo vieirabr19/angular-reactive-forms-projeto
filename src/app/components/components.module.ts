@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { AngularMaterialModule } from "../angular-material/angular-material.module";
+
 import { PipesModule } from "../pipes/pipes.module";
 
 import { UsersList } from './users-list/users-list';
@@ -16,6 +17,8 @@ import { UserInformationsContainer } from './user-informations-container/user-in
 import { GeneralInformationsEdit } from './general-informations-edit/general-informations-edit';
 import { ContactInformationsEdit } from './contact-informations-edit/contact-informations-edit';
 import { DependentListEdit } from './dependent-list-edit/dependent-list-edit';
+import { PhoneListEdit } from './contact-informations-edit/components/phone-list-edit/phone-list-edit';
+import { AddressListEdit } from './contact-informations-edit/components/address-list-edit/address-list-edit';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { DependentListEdit } from './dependent-list-edit/dependent-list-edit';
     UserInformationsContainer,
     GeneralInformationsEdit,
     ContactInformationsEdit,
-    DependentListEdit
+    DependentListEdit,
+    PhoneListEdit,
+    AddressListEdit
   ],
   imports: [
     CommonModule,
