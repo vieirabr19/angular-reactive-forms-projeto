@@ -1,49 +1,65 @@
-<div class="grid lg:grid-cols-3 gap-4 pt-4">
-  <mat-form-field class="w-full">
-    <mat-label>Nome</mat-label>
-    <input type="text" matInput placeholder="Nome">
-  </mat-form-field>
-  <mat-form-field class="w-full">
-    <mat-label>E-mail</mat-label>
-    <input type="email" matInput placeholder="E-mail">
-  </mat-form-field>
-</div>
-<div class="grid lg:grid-cols-3 gap-4 py-2">
-  <mat-form-field>
-    <mat-label>País</mat-label>
-    <mat-select name="pais">
-      @for (pais of []; track pais) {
-      <mat-option [value]="pais">{{pais}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Estados</mat-label>
-    <mat-select name="estado">
-      @for (state of []; track state) {
-      <mat-option [value]="state">{{state}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-</div>
-<div class="grid lg:grid-cols-3 gap-4 py-2">
-  <div class="w-full">
-    <div class="text-lg w-full">Estado civil:</div>
-    <mat-radio-group class="flex flex-col sm:flex-row gap-3">
-      <mat-radio-button value="1">Solteiro</mat-radio-button>
-      <mat-radio-button value="2">Casado</mat-radio-button>
-      <mat-radio-button value="3">Divorciado</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <mat-form-field class="w-full">
-    <mat-label>Renda mensal</mat-label>
-    <input type="text" matInput placeholder="R$ 5.000,00">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Data de nascimento</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>DD/MM/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
+<form [formGroup]="userForm">
+  <ng-container formGroupName="generalInformations">
+    <div class="grid lg:grid-cols-3 gap-4 pt-4">
+      <mat-form-field class="w-full">
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput placeholder="Nome" formControlName="name">
+        <mat-error>O nome é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput placeholder="E-mail" formControlName="email">
+        @if(emailControl.hasError('required')){
+        <mat-error>O e-mail é obrigatório</mat-error>
+        }
+        @if(emailControl.hasError('pattern')){
+        <mat-error>O e-mail é inválido</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-4 py-2">
+      <mat-form-field>
+        <mat-label>País</mat-label>
+        <input type="text" placeholder="Brazil" matInput formControlName="country" [matAutocomplete]="autoCountry">
+        <mat-autocomplete #autoCountry="matAutocomplete" (optionSelected)="onCountrySelected($event)">
+          @for (country of countriesListFiltered; let i = $index; track i) {
+          <mat-option [value]="country.name">{{country.name}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estados</mat-label>
+        <input type="text" placeholder="São Paulo" matInput formControlName="state" [matAutocomplete]="autoState">
+        <mat-autocomplete autoActiveFirstOption #autoState="matAutocomplete" (optionSelected)="onStateSelected($event)">
+          @for (state of statesListFiltered; let i = $index; track i) {
+          <mat-option [value]="state.name">{{state.name}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-4 py-2">
+      <div class="w-full">
+        <div class="text-lg w-full">Estado civil:</div>
+        <mat-radio-group class="flex flex-col sm:flex-row gap-3" formControlName="maritalStatus">
+          @for(status of maritalStatusList; track status.id){
+          <mat-radio-button [value]="status.id">{{status.description}}</mat-radio-button>
+          }
+        </mat-radio-group>
+      </div>
+      <mat-form-field class="w-full">
+        <mat-label>Renda mensal</mat-label>
+        @if(monthlyIncome.value){<span matTextPrefix>R$&nbsp;</span>}
+        <input type="text" #monthlyIncome matInput placeholder="R$ 5.000,00" formControlName="monthlyIncome" mask="separator.2" thousandSeparator="." decimalMarker=",">
+        <mat-error>A renda mensal é obrigatória.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthDate" readonly>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>A data de nascimento é obrigatória.</mat-error>
+      </mat-form-field>
+    </div>
+  </ng-container>
+</form>

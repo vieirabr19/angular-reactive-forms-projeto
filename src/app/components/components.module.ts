@@ -1,5 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 import { AngularMaterialModule } from "../angular-material/angular-material.module";
 
@@ -39,6 +42,9 @@ import { AddressListEdit } from './contact-informations-edit/components/address-
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxMaskDirective,
     AngularMaterialModule,
     PipesModule
   ],
@@ -46,6 +52,9 @@ import { AddressListEdit } from './contact-informations-edit/components/address-
     UsersList,
     ButtonsContainer,
     UserInformationsContainer,
-  ]
+  ],
+  providers: [
+    provideNgxMask()
+  ],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

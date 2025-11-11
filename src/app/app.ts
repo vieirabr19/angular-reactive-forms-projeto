@@ -22,9 +22,6 @@ import { IUser } from './interfaces/user/user.interface';
 })
 export class App {
   private readonly _usersService = inject(UsersService);
-  private readonly _countriesService = inject(CountriesService);
-  private readonly _statesService = inject(statesService);
-  private readonly _citiesService = inject(citiesService);
 
   isInEditMode: boolean = false;
   userSelectedIndex: number | undefined;
@@ -32,9 +29,9 @@ export class App {
 
   // Usa o helper genérico
   usersState = toLoadableSignal<UsersListResponse>(this._usersService.getUsers());
-  countriesState = toLoadableSignal<CountriesList>(this._countriesService.getCountries());
-  statesState = toLoadableSignal<StatesList>(this._statesService.getStates('Brazil'));
-  citiesState = toLoadableSignal<CitiesList>(this._citiesService.getCities('Brazil', 'São Paulo'));
+  // countriesState = toLoadableSignal<CountriesList>(this._countriesService.getCountries());
+  // statesState = toLoadableSignal<StatesList>(this._statesService.getStates('Brazil'));
+  // citiesState = toLoadableSignal<CitiesList>(this._citiesService.getCities('Brazil', 'São Paulo'));
 
 
   // Signals derivados

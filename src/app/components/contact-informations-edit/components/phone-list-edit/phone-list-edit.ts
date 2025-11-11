@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-phone-list-edit',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './phone-list-edit.scss'
 })
 export class PhoneListEdit {
-
+  @Input({ required: true }) userForm!: FormGroup;
 }

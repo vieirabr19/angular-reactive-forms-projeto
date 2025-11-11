@@ -4,14 +4,14 @@
       @if(!isInEditMode){
         <app-general-informations [user]="userSelected" />
       }@else {
-        <app-general-informations-edit />
+        <app-general-informations-edit [userForm]="userForm" [countriesList]="countriesList()" [statesList]="statesList()" (onCountrySelected)="onCountrySelected($event)" />
       }
     </mat-tab>
     <mat-tab label="Contato">      
       @if(!isInEditMode){
         <app-contact-informations [user]="userSelected" />
       }@else {
-        <app-contact-informations-edit />
+        <app-contact-informations-edit [userForm]="userForm" />
       }
     </mat-tab>
     <mat-tab label="Dependente">      

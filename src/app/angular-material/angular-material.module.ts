@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const importsModules = [
   MatButtonModule,
@@ -22,6 +23,7 @@ const importsModules = [
   MatSelectModule,
   MatRadioModule,
   MatDatepickerModule,
+  MatAutocompleteModule,
 ];
 
 @NgModule({
